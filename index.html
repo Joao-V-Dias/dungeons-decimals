@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <canvas></canvas>
+      <div class="combatModal">
+        <div class="lifePlayer">
+          <div class="progressoPlayer">100</div>
+        </div>
+        <div class="lifeEnemy">
+          <div class="progressoEnemy">100</div>
+        </div>
+        <div class="layer">
+          <p id="equacao">Equação</p>
+          <div class="btns">
+            <button onclick="key()" id="0"></button>
+            <button onclick="key()" id="1"></button>
+            <button onclick="key()" id="2"></button>
+            <button onclick="key()" id="3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./data/collisions.js"></script>
+  <script src="combatScreen.js"></script>
+  <script src="game_script.js"></script>
+</html>
