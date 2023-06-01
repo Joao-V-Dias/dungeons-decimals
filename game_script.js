@@ -63,7 +63,7 @@ class Sprite {
 }
 
 class Enemy {
-  constructor({ position, image }) {
+  constructor({ position, image, name }) {
     this.position = position;
     this.image = image;
   }
@@ -126,6 +126,14 @@ const enemyteste = new Enemy({
   image: enemy,
 });
 
+const enemy2 = new Enemy({
+  position: {
+    x: positionFather.x + 700,
+    y: positionFather.y + 900,
+  },
+  image: enemy,
+});
+
 const background = new Sprite({
   position: {
     x: positionFather.x,
@@ -159,12 +167,12 @@ const keys = {
   },
 };
 
-function verificaEnemy(playerteste, enemyteste) {
+function verificaEnemy(playerteste, inimigos) {
   return (
-    playerteste.position.x + 48 >= enemyteste.position.x &&
-    playerteste.position.x <= enemyteste.position.x + squareArea &&
-    playerteste.position.y + 68 >= enemyteste.position.y &&
-    playerteste.position.y <= enemyteste.position.y + squareArea
+    playerteste.position.x + 48 >= inimigos.position.x &&
+    playerteste.position.x <= inimigos.position.x + squareArea &&
+    playerteste.position.y + 68 >= inimigos.position.y &&
+    playerteste.position.y <= inimigos.position.y + squareArea
   );
 }
 
@@ -190,7 +198,8 @@ function mudarFrame() {
   }
 }
 
-const movement = [background, enemyteste];
+const movement = [background, enemyteste, enemy2];
+const inimigos = [enemyteste, enemy2]
 
 function move() {
   //////////////
@@ -202,7 +211,16 @@ function move() {
   });
   playerteste.draw();
   enemyteste.draw();
+  enemy2.draw();
   background.drawWall();
+
+  for ( let i = 0;i< inimigos.length; i++){
+    if (verificaEnemy(playerteste, inimigos[i])) {
+      // console.log("Colisao inimigo");
+      document.querySelector(".combatModal").style.display = "block";
+      combat(inimigos[i]);
+    }
+  }
 
   let check = true;
   if (keys.w.pressed && lastKey === "w") {
@@ -222,12 +240,7 @@ function move() {
         break;
       }
     }
-    if (verificaEnemy(playerteste, enemyteste)) {
-      console.log("Colisao inimigo");
-      document.querySelector(".combatModal").style.display = "block";
-
-      combat(enemyteste);
-    }
+    
     if (check) {
       movement.forEach((move) => {
         move.position.y += 5;
@@ -254,9 +267,8 @@ function move() {
         break;
       }
     }
-    if (verificaEnemy(playerteste, enemyteste)) {
-      console.log("Colisao inimigo");
-    }
+    
+    
     if (check) {
       movement.forEach((move) => {
         move.position.x += 5;
@@ -283,9 +295,7 @@ function move() {
         break;
       }
     }
-    if (verificaEnemy(playerteste, enemyteste)) {
-      console.log("Colisao inimigo");
-    }
+    
     if (check) {
       movement.forEach((move) => {
         move.position.y -= 5;
@@ -314,9 +324,7 @@ function move() {
         break;
       }
     }
-    if (verificaEnemy(playerteste, enemyteste)) {
-      console.log("Colisao inimigo");
-    }
+    
     if (check) {
       movement.forEach((move) => {
         move.position.x -= 5;
