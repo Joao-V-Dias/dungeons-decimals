@@ -66,6 +66,7 @@ class Enemy {
   constructor({ position, image, name }) {
     this.position = position;
     this.image = image;
+    this.name = name;
   }
 
   draw() {
@@ -124,6 +125,7 @@ const enemyteste = new Enemy({
     y: positionFather.y + 900,
   },
   image: enemy,
+  name: "inimigo1",
 });
 
 const enemy2 = new Enemy({
@@ -132,6 +134,7 @@ const enemy2 = new Enemy({
     y: positionFather.y + 900,
   },
   image: enemy,
+  name: "inimigo2",
 });
 
 const background = new Sprite({
@@ -199,7 +202,7 @@ function mudarFrame() {
 }
 
 const movement = [background, enemyteste, enemy2];
-const inimigos = [enemyteste, enemy2]
+const inimigos = [enemyteste, enemy2];
 
 function move() {
   //////////////
@@ -214,12 +217,22 @@ function move() {
   enemy2.draw();
   background.drawWall();
 
-  for ( let i = 0;i< inimigos.length; i++){
+  let closeTela = true;
+
+  for (let i = 0; i < inimigos.length; i++) {
     if (verificaEnemy(playerteste, inimigos[i])) {
-      // console.log("Colisao inimigo");
-      document.querySelector(".combatModal").style.display = "block";
-      combat(inimigos[i]);
+      console.log(inimigos[i].name);
+
+      caixaDialogoVerifica(inimigos[i].name, inimigos[i]);
+
+      // document.querySelector(".combatModal").style.display = "block"
+      closeTela = false;
     }
+  }
+
+  if (closeTela == true) {
+    document.querySelector(".telaConversa").style.display = "none";
+    numDialogo = 0;
   }
 
   let check = true;
@@ -240,7 +253,7 @@ function move() {
         break;
       }
     }
-    
+
     if (check) {
       movement.forEach((move) => {
         move.position.y += 5;
@@ -267,8 +280,7 @@ function move() {
         break;
       }
     }
-    
-    
+
     if (check) {
       movement.forEach((move) => {
         move.position.x += 5;
@@ -295,7 +307,7 @@ function move() {
         break;
       }
     }
-    
+
     if (check) {
       movement.forEach((move) => {
         move.position.y -= 5;
@@ -324,7 +336,7 @@ function move() {
         break;
       }
     }
-    
+
     if (check) {
       movement.forEach((move) => {
         move.position.x -= 5;
