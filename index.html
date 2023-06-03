@@ -12,7 +12,30 @@
       <canvas></canvas>
       <div class="telaConversa">
         <span class="dialogo">Texto mensagems</span>
+        <img src="./img/enter-button-icon.svg" alt="" class="enter" />
       </div>
+      <div class="playerMorte telaMorte">
+        <img
+          src="./img/22608474-lapide-com-arbusto-dentro-pixel-arte-estilo-vetor.jpg"
+          alt=""
+        />
+        <span class="textoMorte"></span>
+        <button
+          onclick="
+        location.reload()"
+        >
+          Reiniciar o Jogo
+        </button>
+      </div>
+      <div class="inimigoMorte telaMorte">
+        <img
+          src="./img/22608474-lapide-com-arbusto-dentro-pixel-arte-estilo-vetor.jpg"
+          alt=""
+        />
+        <span class="textoMorteInimigo"></span>
+        <button onclick="removeTelaInimigo()">Continuar</button>
+      </div>
+
       <div class="combatModal">
         <div class="lifePlayer">
           <div class="progressoPlayer">100</div>
@@ -23,13 +46,14 @@
         <div class="layer">
           <p id="equacao">Equação</p>
           <div class="btns">
-            <button onclick="key()" id="0"></button>
-            <button onclick="key()" id="1"></button>
-            <button onclick="key()" id="2"></button>
-            <button onclick="key()" id="3"></button>
+            <button onclick="key()" id="0" class="btnLayer"></button>
+            <button onclick="key()" id="1" class="btnLayer"></button>
+            <button onclick="key()" id="2" class="btnLayer"></button>
+            <button onclick="key()" id="3" class="btnLayer"></button>
           </div>
         </div>
       </div>
+      <div class="boxTimer"></div>
     </div>
   </body>
 

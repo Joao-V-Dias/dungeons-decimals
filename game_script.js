@@ -221,9 +221,9 @@ function move() {
 
   for (let i = 0; i < inimigos.length; i++) {
     if (verificaEnemy(playerteste, inimigos[i])) {
-      console.log(inimigos[i].name);
+      // console.log(inimigos[i].name);
 
-      caixaDialogoVerifica(inimigos[i].name, inimigos[i]);
+      caixaDialogoVerifica(inimigos[i]);
 
       // document.querySelector(".combatModal").style.display = "block"
       closeTela = false;
@@ -232,6 +232,7 @@ function move() {
 
   if (closeTela == true) {
     document.querySelector(".telaConversa").style.display = "none";
+
     numDialogo = 0;
   }
 
