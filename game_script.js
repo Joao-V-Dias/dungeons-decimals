@@ -84,10 +84,6 @@ for (let i = 0; i < collisions.length; i += 70) {
 }
 
 const boundaries = [];
-const positionFather = {
-  x: -100,
-  y: -400,
-};
 
 mapCollision.forEach((row, i) => {
   row.forEach((character, j) => {
@@ -95,8 +91,8 @@ mapCollision.forEach((row, i) => {
       boundaries.push(
         new Boundary({
           position: {
-            x: j * 88 + positionFather.x,
-            y: i * 88 + positionFather.y,
+            x: j * 88 + -100,
+            y: i * 88 + -400,
           },
         })
       );
@@ -121,8 +117,8 @@ enemy.src = "./img/enemyteste.png";
 
 const enemyteste = new Enemy({
   position: {
-    x: positionFather.x + 400,
-    y: positionFather.y + 900,
+    x: 400,
+    y: 500,
   },
   image: enemy,
   name: "inimigo1",
@@ -130,17 +126,27 @@ const enemyteste = new Enemy({
 
 const enemy2 = new Enemy({
   position: {
-    x: positionFather.x + 700,
-    y: positionFather.y + 900,
+    //{x: -4535 + , y: -185}
+    x: 5220,
+    y: 100,
   },
   image: enemy,
   name: "inimigo2",
 });
 
+const boss = new Enemy({
+  position: {
+    x: 5250,
+    y: 2274,
+  },
+  image: enemy,
+  name: "boss",
+});
+
 const background = new Sprite({
   position: {
-    x: positionFather.x,
-    y: positionFather.y,
+    x: -100,
+    y: -400,
   },
 });
 
@@ -201,11 +207,11 @@ function mudarFrame() {
   }
 }
 
-const movement = [background, enemyteste, enemy2];
+const movement = [background, enemyteste, enemy2, boss];
 const inimigos = [enemyteste, enemy2];
 
 function move() {
-  //////////////
+  //////////////{x: -220, y: -4840}
   //drae image//
   //////////////
   background.draw();
@@ -216,6 +222,9 @@ function move() {
   enemyteste.draw();
   enemy2.draw();
   background.drawWall();
+  if (numInimigosMortos == 2) {
+    boss.draw();
+  }
 
   let closeTela = true;
 

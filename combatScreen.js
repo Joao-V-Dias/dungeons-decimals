@@ -182,6 +182,7 @@ const textoInimigo = {
     "mensagem 2 do primeiro inimigo",
   ],
   inimigo2: ["mensagem 1 do segundo inimigo", "mensagem 2 do segundo inimigo"],
+  boss: ["Mensagem do Boss", "Shuuuuu!"],
 };
 
 function time() {
@@ -241,12 +242,13 @@ function combat() {
       numDialogo = 0;
       clearInterval(timerCombat);
       numInimigosMortos++;
-      document.querySelector(".inimigosMortos").innerHTML =
-        numInimigosMortos + " / 5";
+      document.querySelector(".inimigosDerrotados").innerHTML =
+        "Inimigos Derrotados: " + numInimigosMortos + " / 5";
 
       if (numInimigosMortos == 2) {
-        document.querySelector(".inimigosMortos").innerHTML =
+        document.querySelector(".inimigosDerrotados").innerHTML =
           "Chefe desbloqueado!";
+        inimigos.push(boss);
       }
 
       enemyBar.innerText = lifeEnemy;
@@ -305,6 +307,10 @@ function caixaDialogoVerifica(inimigo) {
       break;
     case "inimigo2":
       numCasa = textoInimigo.inimigo2;
+      mensagemdDialogo(numCasa);
+      break;
+    case "boss":
+      numCasa = textoInimigo.boss;
       mensagemdDialogo(numCasa);
       break;
   }

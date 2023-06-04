@@ -12,9 +12,8 @@ body {
 }
 
 .inimigosDerrotados {
-  padding: 0.5vw 1vw;
+  padding: 1.5vw;
   border: 5px solid rgb(17, 17, 17);
-  gap: 0.5vw;
   background-color: #252525;
   position: fixed;
   top: 2%;
@@ -22,10 +21,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.inimigosDerrotados > img {
-  width: 64px;
 }
 
 .content {
