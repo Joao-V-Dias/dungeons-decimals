@@ -11,8 +11,36 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
+.inimigosDerrotados {
+  padding: 0.5vw 1vw;
+  border: 5px solid rgb(17, 17, 17);
+  gap: 0.5vw;
+  background-color: #252525;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inimigosDerrotados > img {
+  width: 64px;
+}
+
 .content {
   display: flex;
+}
+
+.mapa {
+  border: 5px solid rgb(17, 17, 17);
+  width: auto;
+  height: 90vh;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  display: none;
 }
 
 .combatModal {

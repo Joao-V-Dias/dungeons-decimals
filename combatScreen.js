@@ -11,6 +11,7 @@ let numCasa = 0;
 let numDialogo = 0;
 let inimigoInf;
 let timerCombat;
+let numInimigosMortos = 0;
 
 const perguntas = [
   {
@@ -239,6 +240,14 @@ function combat() {
       lifeEnemy = 100;
       numDialogo = 0;
       clearInterval(timerCombat);
+      numInimigosMortos++;
+      document.querySelector(".inimigosMortos").innerHTML =
+        numInimigosMortos + " / 5";
+
+      if (numInimigosMortos == 2) {
+        document.querySelector(".inimigosMortos").innerHTML =
+          "Chefe desbloqueado!";
+      }
 
       enemyBar.innerText = lifeEnemy;
       enemyBar.style.width = lifeEnemy + "%";

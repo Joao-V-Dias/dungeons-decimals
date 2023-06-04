@@ -380,6 +380,9 @@ window.addEventListener("keydown", (click) => {
       player.src = "./img/playerRight.png";
       lastKey = "d";
       break;
+    case "m":
+      document.querySelector(".mapa").style.display = "block";
+      break;
   }
 });
 
@@ -396,6 +399,9 @@ window.addEventListener("keyup", (click) => {
       break;
     case "d":
       keys.d.pressed = false;
+      break;
+    case "m":
+      document.querySelector(".mapa").style.display = "none";
       break;
   }
 });
