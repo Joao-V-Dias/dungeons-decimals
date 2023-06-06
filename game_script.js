@@ -194,16 +194,43 @@ function verificaCollision(playerteste, { position }) {
   );
 }
 
-function mudarFrame() {
+const audioPegadas = [
+  "./audio/wood02.ogg",
+  "./audio/wood01.ogg",
+  "./audio/wood02.ogg",
+  "./audio/wood03.ogg",
+];
+const pegadas = new Audio();
+
+function mudarFrameX() {
   if (playerteste.frame < 3) {
-    if (background.position.y % 50 == 0 || background.position.x % 50 == 0) {
+    if (background.position.x % 50 == 0) {
       playerteste.frame = playerteste.frame + 1;
+      pegadas.pause();
+      pegadas.src = audioPegadas[playerteste.frame];
+      pegadas.play();
     }
-  } else if (
-    background.position.y % 50 == 0 ||
-    background.position.x % 50 == 0
-  ) {
+  } else if (background.position.x % 50 == 0) {
     playerteste.frame = 0;
+    pegadas.pause();
+    pegadas.src = "./audio/wood02.ogg";
+    pegadas.play();
+  }
+}
+
+function mudarFrameY() {
+  if (playerteste.frame < 3) {
+    if (background.position.y % 50 == 0) {
+      playerteste.frame = playerteste.frame + 1;
+      pegadas.pause();
+      pegadas.src = audioPegadas[playerteste.frame];
+      pegadas.play();
+    }
+  } else if (background.position.y % 50 == 0) {
+    playerteste.frame = 0;
+    pegadas.pause();
+    pegadas.src = "./audio/wood02.ogg";
+    pegadas.play();
   }
 }
 
@@ -271,7 +298,7 @@ function move() {
       boundaries.forEach((boundary) => {
         boundary.position.y += 5;
       });
-      mudarFrame();
+      mudarFrameY();
     }
   } else if (keys.a.pressed && lastKey === "a") {
     //key = a
@@ -298,7 +325,7 @@ function move() {
       boundaries.forEach((boundary) => {
         boundary.position.x += 5;
       });
-      mudarFrame();
+      mudarFrameX();
     }
   } else if (keys.s.pressed && lastKey === "s") {
     //key = s
@@ -326,7 +353,7 @@ function move() {
         boundary.position.y -= 5;
       });
       ///////////////////////////////
-      mudarFrame();
+      mudarFrameY();
       ///////////////////////////
     }
   } else if (keys.d.pressed && lastKey === "d") {
@@ -354,7 +381,7 @@ function move() {
       boundaries.forEach((boundary) => {
         boundary.position.x -= 5;
       });
-      mudarFrame();
+      mudarFrameX();
     }
   }
 
@@ -368,30 +395,32 @@ move();
 ////////////
 
 window.addEventListener("keydown", (click) => {
-  switch (click.key) {
-    case "w":
-      keys.w.pressed = true;
-      player.src = "./img/playerUp.png";
-      lastKey = "w";
-      break;
-    case "a":
-      keys.a.pressed = true;
-      player.src = "./img/playerLeft.png";
-      lastKey = "a";
-      break;
-    case "s":
-      keys.s.pressed = true;
-      player.src = "./img/playerDown.png";
-      lastKey = "s";
-      break;
-    case "d":
-      keys.d.pressed = true;
-      player.src = "./img/playerRight.png";
-      lastKey = "d";
-      break;
-    case "m":
-      document.querySelector(".mapa").style.display = "block";
-      break;
+  if (document.querySelector(".combatModal").style.display != "block") {
+    switch (click.key) {
+      case "w":
+        keys.w.pressed = true;
+        player.src = "./img/playerUp.png";
+        lastKey = "w";
+        break;
+      case "a":
+        keys.a.pressed = true;
+        player.src = "./img/playerLeft.png";
+        lastKey = "a";
+        break;
+      case "s":
+        keys.s.pressed = true;
+        player.src = "./img/playerDown.png";
+        lastKey = "s";
+        break;
+      case "d":
+        keys.d.pressed = true;
+        player.src = "./img/playerRight.png";
+        lastKey = "d";
+        break;
+      case "m":
+        document.querySelector(".mapa").style.display = "block";
+        break;
+    }
   }
 });
 
