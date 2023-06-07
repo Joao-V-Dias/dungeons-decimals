@@ -124,22 +124,28 @@ const enemyteste = new Enemy({
   name: "inimigo1",
 });
 
+const inimigo2Img = new Image();
+inimigo2Img.src = "../img/inimigo2.png";
+
 const enemy2 = new Enemy({
   position: {
     //{x: -4535 + , y: -185}
     x: 5220,
     y: 100,
   },
-  image: enemy,
+  image: inimigo2Img,
   name: "inimigo2",
 });
+
+const bossImg = new Image();
+bossImg.src = "../img/boss.png";
 
 const boss = new Enemy({
   position: {
     x: 5250,
     y: 2274,
   },
-  image: enemy,
+  image: bossImg,
   name: "boss",
 });
 

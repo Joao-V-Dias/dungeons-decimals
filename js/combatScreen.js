@@ -109,6 +109,13 @@ function key() {
 
   if (id == questaoTela.resposta) {
     lifeEnemy -= dano;
+
+    document.querySelector("#inimigoImg").style.animation = "";
+    setTimeout(function () {
+      document.querySelector("#inimigoImg").style.animation =
+        "dano 0.5s linear";
+    }, 5);
+
     // console.log(lifeEnemy);
     enemyBar.innerText = lifeEnemy;
     enemyBar.style.width = lifeEnemy + "%";
@@ -116,6 +123,10 @@ function key() {
     //   console.log("True");
   } else {
     lifePlayer -= dano;
+    document.querySelector("#playerImg").style.animation = "";
+    setTimeout(function () {
+      document.querySelector("#playerImg").style.animation = "dano 0.5s linear";
+    }, 5);
     playerBar.innerText = lifePlayer;
     playerBar.style.width = lifePlayer + "%";
   }
@@ -141,14 +152,17 @@ function caixaDialogoVerifica(inimigo) {
   switch (inimigoInf.name) {
     case "inimigo1":
       numCasa = textoInimigo.inimigo1;
+      document.querySelector("#inimigoImg").src = "../img/enemyteste.png";
       mensagemdDialogo(numCasa);
       break;
     case "inimigo2":
       numCasa = textoInimigo.inimigo2;
+      document.querySelector("#inimigoImg").src = "../img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
     case "boss":
       numCasa = textoInimigo.boss;
+      document.querySelector("#inimigoImg").src = "../img/boss.png";
       mensagemdDialogo(numCasa);
       break;
   }
