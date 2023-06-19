@@ -366,10 +366,37 @@ const perguntas = [
 ];
 
 const textoInimigo = {
-  inimigo1: [
-    "mensagem 1 do primeiro inimigo",
-    "mensagem 2 do primeiro inimigo",
+  galileu: [
+    "Ora ora, quem temos aqui? Nunca vi alguém como você por aqui, será que é outro teste da igreja? Não, eles não usam estes uniforme",
+    "Essas roupas na verdade parecem com a do alquimista que chegou recentemente, ele tem nos causado muitos problemas",
+    "Desculpe garoto, mas pelo bem de todos aqui não posso entregar essa peça pra você",
   ],
-  inimigo2: ["mensagem 1 do segundo inimigo", "mensagem 2 do segundo inimigo"],
-  boss: ["Mensagem do Boss", "Shuuuuu!"],
+  lobisomen: [
+    "O que? Quem é você e que roupas são essas?Ah, você é amigo daquele alquimista pirado?",
+    "Aquele maluco quase nos matou, ele juntou a gente e falou de uma maquina estranha que nunca ouvi falar, mas é obvio que o Papa não vai tolerar isso",
+    "De qualquer forma, se quiser mesmo ajudar aquele lunático, vai ter quepassar por mim primeiro",
+  ],
+
+  bonzyBuddy: [
+    "Bonzy Buddy quer ficar sozinho agora",
+    "Bonzy Buddy não vai te dar peça, peça é ruim pra nós, os irmãos falaram!!",
+    "Bonzy Buddy vai acabar com você",
+  ],
+
+  siameses: [
+    "Oh céus, uma criança aqui! Como você veio parar aqui jovem? Deve ter caído em mais uma das armadilhas do novo papado, aqueles repugnates!",
+    "Ahn? Quer essa peça? Garoto não posso te entregar isso, nossa vida correra perigo, na verdade, como sabe dela? Está trabalhando para aquele cientista?",
+    "Que pena, rapaz, você tinha um futuro inteiro pela frente, adeus",
+  ],
+
+  cientista: [
+    "Ah, olá jovem, você conseguiu as peças que eu queria? Muito bem, sabia que podia contar com você",
+    "Agora é só juntar isso com isso, aquilo com isso e mais isso e",
+    "VOALA",
+    "Está pronta, a maquina que vai me tirar dessa bagunça, agora finalmente vou poder encontrar meu filho perdido de novo",
+    "Ah sim, lhe devo algumas explicações!, mesmo sabendo que não vai entender",
+    "Eu cheguei em casa e encontrei minha maquina do tempo completamente destruída e com claros sinais de uso, também não encontrei meu filho depois disso e só juntei os fatos",
+    "Desde então eu estive vagando pelas eras a procura dele, até que fiquei preso aqui, e agora nem lembro mais como era o rosto dele",
+    "Sinto muito garoto, mas só tem carga pra uma pessoa, e preciso encontrar meu filho",
+  ],
 };

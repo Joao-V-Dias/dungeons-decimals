@@ -131,7 +131,7 @@ button:hover {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 5vw 5vw 7vw 5vw;
+  padding: 3vw 5vw 5vw 5vw;
   display: none;
   color: #fff;
 }
@@ -159,6 +159,11 @@ button:hover {
 .telaMorte > img {
   width: 10vw;
   height: auto;
+}
+
+.dialogo {
+  letter-spacing: 1px;
+  line-height: 25px;
 }
 
 .inimigoMorte {

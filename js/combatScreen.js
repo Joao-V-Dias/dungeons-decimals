@@ -150,18 +150,18 @@ function caixaDialogoVerifica(inimigo) {
   inimigoInf = inimigo;
   document.querySelector(".telaConversa").style.display = "block";
   switch (inimigoInf.name) {
-    case "inimigo1":
-      numCasa = textoInimigo.inimigo1;
+    case "galileu":
+      numCasa = textoInimigo.galileu;
       document.querySelector("#inimigoImg").src = "../img/enemyteste.png";
       mensagemdDialogo(numCasa);
       break;
-    case "inimigo2":
-      numCasa = textoInimigo.inimigo2;
+    case "lobisomen":
+      numCasa = textoInimigo.lobisomen;
       document.querySelector("#inimigoImg").src = "../img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
-    case "boss":
-      numCasa = textoInimigo.boss;
+    case "cientista":
+      numCasa = textoInimigo.cientista;
       document.querySelector("#inimigoImg").src = "../img/boss.png";
       mensagemdDialogo(numCasa);
       break;

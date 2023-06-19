@@ -115,26 +115,26 @@ wall.src = "../img/mapaDungeonParedes.png";
 const enemy = new Image();
 enemy.src = "../img/enemyteste.png";
 
-const enemyteste = new Enemy({
+const galileu = new Enemy({
   position: {
     x: 400,
     y: 500,
   },
   image: enemy,
-  name: "inimigo1",
+  name: "galileu",
 });
 
 const inimigo2Img = new Image();
 inimigo2Img.src = "../img/inimigo2.png";
 
-const enemy2 = new Enemy({
+const lobisomen = new Enemy({
   position: {
     //{x: -4535 + , y: -185}
     x: 5220,
     y: 100,
   },
   image: inimigo2Img,
-  name: "inimigo2",
+  name: "lobisomen",
 });
 
 const bossImg = new Image();
@@ -146,7 +146,7 @@ const boss = new Enemy({
     y: 2274,
   },
   image: bossImg,
-  name: "boss",
+  name: "cientista",
 });
 
 const background = new Sprite({
@@ -240,8 +240,8 @@ function mudarFrameY() {
   }
 }
 
-const movement = [background, enemyteste, enemy2, boss];
-const inimigos = [enemyteste, enemy2];
+const movement = [background, galileu, lobisomen, boss];
+const inimigos = [galileu, lobisomen];
 
 function move() {
   //////////////{x: -220, y: -4840}
@@ -252,8 +252,8 @@ function move() {
     boundary.draw();
   });
   playerteste.draw();
-  enemyteste.draw();
-  enemy2.draw();
+  galileu.draw();
+  lobisomen.draw();
   background.drawWall();
   if (numInimigosMortos == 2) {
     boss.draw();
