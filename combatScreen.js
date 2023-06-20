@@ -62,7 +62,7 @@ function combat() {
 
     if (lifeEnemy <= 0) {
       // console.log("Voce ganhou");
-      somMorteInimigoPlayer.src = "../audio/Victory.mp3";
+      somMorteInimigoPlayer.src = "./audio/Victory.mp3";
       document.querySelector(".textoMorteInimigo").innerHTML =
         "Você derrotou " + inimigoInf.name;
 
@@ -88,7 +88,7 @@ function combat() {
       document.querySelector(".combatModal").style.display = "none";
       document.querySelector(".inimigoMorte").style.display = "flex";
     } else {
-      somMorteInimigoPlayer.src = "../audio/somMorte.mp3";
+      somMorteInimigoPlayer.src = "./audio/somMorte.mp3";
       document.querySelector(".boxTimer").style.display = "none";
       document.querySelector(".textoMorte").innerHTML =
         "Você morreu por " + inimigoInf.name;
@@ -103,7 +103,7 @@ function key() {
   const id = event.target.id;
 
   const somGolpe = new Audio();
-  somGolpe.src = "../audio/golpe.wav";
+  somGolpe.src = "./audio/golpe.wav";
 
   somGolpe.play();
 
@@ -152,17 +152,17 @@ function caixaDialogoVerifica(inimigo) {
   switch (inimigoInf.name) {
     case "galileu":
       numCasa = textoInimigo.galileu;
-      document.querySelector("#inimigoImg").src = "../img/enemyteste.png";
+      document.querySelector("#inimigoImg").src = "./img/enemyteste.png";
       mensagemdDialogo(numCasa);
       break;
     case "lobisomen":
       numCasa = textoInimigo.lobisomen;
-      document.querySelector("#inimigoImg").src = "../img/inimigo2.png";
+      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
     case "cientista":
       numCasa = textoInimigo.cientista;
-      document.querySelector("#inimigoImg").src = "../img/boss.png";
+      document.querySelector("#inimigoImg").src = "./img/boss.png";
       mensagemdDialogo(numCasa);
       break;
   }

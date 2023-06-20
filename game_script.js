@@ -10,7 +10,7 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 //image player//
 const player = new Image();
-player.src = "../img/playerDown.png";
+player.src = "./img/playerDown.png";
 
 //////////////////////////////
 //create class for interface//
@@ -107,13 +107,13 @@ mapCollision.forEach((row, i) => {
 //add image//
 /////////////
 const image = new Image();
-image.src = "../img/mapaDungeon.png";
+image.src = "./img/mapaDungeon.png";
 
 const wall = new Image();
-wall.src = "../img/mapaDungeonParedes.png";
+wall.src = "./img/mapaDungeonParedes.png";
 
 const enemy = new Image();
-enemy.src = "../img/enemyteste.png";
+enemy.src = "./img/enemyteste.png";
 
 const galileu = new Enemy({
   position: {
@@ -125,7 +125,7 @@ const galileu = new Enemy({
 });
 
 const inimigo2Img = new Image();
-inimigo2Img.src = "../img/inimigo2.png";
+inimigo2Img.src = "./img/inimigo2.png";
 
 const lobisomen = new Enemy({
   position: {
@@ -138,7 +138,7 @@ const lobisomen = new Enemy({
 });
 
 const bossImg = new Image();
-bossImg.src = "../img/boss.png";
+bossImg.src = "./img/boss.png";
 
 const boss = new Enemy({
   position: {
@@ -201,10 +201,10 @@ function verificaCollision(playerteste, { position }) {
 }
 
 const audioPegadas = [
-  "../audio/wood02.ogg",
-  "../audio/wood01.ogg",
-  "../audio/wood02.ogg",
-  "../audio/wood03.ogg",
+  "./audio/wood02.ogg",
+  "./audio/wood01.ogg",
+  "./audio/wood02.ogg",
+  "./audio/wood03.ogg",
 ];
 const pegadas = new Audio();
 
@@ -219,7 +219,7 @@ function mudarFrameX() {
   } else if (background.position.x % 50 == 0) {
     playerteste.frame = 0;
     pegadas.pause();
-    pegadas.src = "../audio/wood02.ogg";
+    pegadas.src = "./audio/wood02.ogg";
     pegadas.play();
   }
 }
@@ -235,7 +235,7 @@ function mudarFrameY() {
   } else if (background.position.y % 50 == 0) {
     playerteste.frame = 0;
     pegadas.pause();
-    pegadas.src = "../audio/wood02.ogg";
+    pegadas.src = "./audio/wood02.ogg";
     pegadas.play();
   }
 }
@@ -405,22 +405,22 @@ window.addEventListener("keydown", (click) => {
     switch (click.key) {
       case "w":
         keys.w.pressed = true;
-        player.src = "../img/playerUp.png";
+        player.src = "./img/playerUp.png";
         lastKey = "w";
         break;
       case "a":
         keys.a.pressed = true;
-        player.src = "../img/playerLeft.png";
+        player.src = "./img/playerLeft.png";
         lastKey = "a";
         break;
       case "s":
         keys.s.pressed = true;
-        player.src = "../img/playerDown.png";
+        player.src = "./img/playerDown.png";
         lastKey = "s";
         break;
       case "d":
         keys.d.pressed = true;
-        player.src = "../img/playerRight.png";
+        player.src = "./img/playerRight.png";
         lastKey = "d";
         break;
       case "m":
