@@ -5,6 +5,20 @@ const squareArea = 88;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+function creditos_reveal(){
+  document.querySelector(".btn_creditos").classList.toggle("active")
+  document.querySelector(".img_title").classList.toggle("active")
+  document.querySelector(".container_creditos").classList.toggle("active")
+
+}
+
+function play(){
+  document.querySelector("#container_home").style.display = "none";
+  document.querySelector(".videoInicio").style.display = "block";
+  document.querySelector(".videoInicio").play();
+  
+}
+
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -137,6 +151,28 @@ const lobisomen = new Enemy({
   name: "lobisomen",
 });
 
+
+
+const bonzyBuddy = new Enemy({
+  position: {
+    //{x: -4535 + , y: -185}
+    x: 300,
+    y: 200,
+  },
+  image: inimigo2Img,
+  name: "bonzyBuddy",
+});
+
+const siameses = new Enemy({
+  position: {
+    //{x: -4535 + , y: -185}
+    x: 300,
+    y: 600,
+  },
+  image: inimigo2Img,
+  name: "siameses",
+});
+
 const bossImg = new Image();
 bossImg.src = "./img/boss.png";
 
@@ -240,8 +276,8 @@ function mudarFrameY() {
   }
 }
 
-const movement = [background, galileu, lobisomen, boss];
-const inimigos = [galileu, lobisomen];
+const movement = [background, galileu, lobisomen, bonzyBuddy, siameses, boss];
+const inimigos = [galileu, lobisomen, bonzyBuddy, siameses];
 
 function move() {
   //////////////{x: -220, y: -4840}
@@ -254,6 +290,8 @@ function move() {
   playerteste.draw();
   galileu.draw();
   lobisomen.draw();
+  bonzyBuddy.draw();
+  siameses.draw();
   background.drawWall();
   if (numInimigosMortos == 2) {
     boss.draw();

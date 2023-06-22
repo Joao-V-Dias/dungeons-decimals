@@ -49,7 +49,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 98;
+  z-index: 97;
   display: none;
 }
 
@@ -125,7 +125,7 @@ button:hover {
 }
 
 .telaConversa {
-  width: 88vw;
+  width: 100vw;
   border: 1vw solid rgb(17, 17, 17);
   background-color: #252525;
   position: fixed;
@@ -194,7 +194,7 @@ button:hover {
   top: 66%;
   left: 0;
   transform: translate(0, -50%);
-  z-index: 99;
+  z-index: 98;
   text-align: center;
   font-size: 1.5rem;
   padding: 3% 0;

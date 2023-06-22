@@ -15,7 +15,7 @@ let numInimigosMortos = 0;
 
 function time() {
   let timeInicio = 3;
-  let timeCombat = 10;
+  let timeCombat = 5;
   document.querySelector(".boxTimer").style.display = "block";
   let timer = setInterval(function () {
     // console.log(timeInicio);
@@ -157,6 +157,16 @@ function caixaDialogoVerifica(inimigo) {
       break;
     case "lobisomen":
       numCasa = textoInimigo.lobisomen;
+      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
+      mensagemdDialogo(numCasa);
+      break;
+    case "bonzyBuddy":
+      numCasa = textoInimigo.bonzyBuddy;
+      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
+      mensagemdDialogo(numCasa);
+      break;
+    case "siameses":
+      numCasa = textoInimigo.siameses;
       document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
