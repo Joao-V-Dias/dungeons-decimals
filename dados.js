@@ -525,7 +525,7 @@ const perguntas = [
   },
 ];
 
-console.log(perguntas.length)
+console.log(perguntas.length);
 
 const textoInimigo = {
   galileu: [

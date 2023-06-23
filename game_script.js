@@ -1,23 +1,29 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 const squareArea = 88;
+const videoInicial = document.querySelector(".videoInicio");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-function creditos_reveal(){
-  document.querySelector(".btn_creditos").classList.toggle("active")
-  document.querySelector(".img_title").classList.toggle("active")
-  document.querySelector(".container_creditos").classList.toggle("active")
-
+function creditos_reveal() {
+  document.querySelector(".btn_creditos").classList.toggle("active");
+  document.querySelector(".img_title").classList.toggle("active");
+  document.querySelector(".container_creditos").classList.toggle("active");
 }
 
-function play(){
+function play() {
   document.querySelector("#container_home").style.display = "none";
   document.querySelector(".videoInicio").style.display = "block";
-  document.querySelector(".videoInicio").play();
-  
+  videoInicial.play();
+  console.log(
+    videoInicial.style.display +
+      document.querySelector(".combatModal").style.display
+  );
 }
+videoInicial.addEventListener("ended", function () {
+  videoInicial.style.display = "none";
+});
 
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -151,8 +157,6 @@ const lobisomen = new Enemy({
   name: "lobisomen",
 });
 
-
-
 const bonzyBuddy = new Enemy({
   position: {
     //{x: -4535 + , y: -185}
@@ -232,7 +236,7 @@ function verificaCollision(playerteste, { position }) {
     playerteste.position.x + 48 >= position.x &&
     playerteste.position.x <= position.x + squareArea &&
     playerteste.position.y + 68 >= position.y &&
-    playerteste.position.y <= position.y + squareArea
+    playerteste.position.y <= position.y + squareArea - 30
   );
 }
 
@@ -438,8 +442,16 @@ move();
 //keyboard//
 ////////////
 
+console.log(
+  videoInicial.style.display +
+    document.querySelector(".combatModal").style.display
+);
+
 window.addEventListener("keydown", (click) => {
-  if (document.querySelector(".combatModal").style.display != "block") {
+  if (
+    document.querySelector(".combatModal").style.display != "block" &&
+    videoInicial.style.display == "none"
+  ) {
     switch (click.key) {
       case "w":
         keys.w.pressed = true;

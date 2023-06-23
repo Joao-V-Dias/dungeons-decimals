@@ -15,7 +15,7 @@ let numInimigosMortos = 0;
 
 function time() {
   let timeInicio = 3;
-  let timeCombat = 5;
+  let timeCombat = 50;
   document.querySelector(".boxTimer").style.display = "block";
   let timer = setInterval(function () {
     // console.log(timeInicio);
