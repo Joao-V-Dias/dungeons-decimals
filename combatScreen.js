@@ -18,14 +18,12 @@ function time() {
   let timeCombat = 50;
   document.querySelector(".boxTimer").style.display = "block";
   let timer = setInterval(function () {
-    // console.log(timeInicio);
     document.querySelector(".boxTimer").innerHTML = timeInicio;
     timeInicio--;
     if (timeInicio < 0) {
       clearInterval(timer);
       document.querySelector(".boxTimer").innerHTML = "";
       timerCombat = setInterval(function () {
-        // console.log(timeCombat + "Combate");
         document.querySelector(".boxTimer").innerHTML =
           "Tempo Restante: " + timeCombat + "s";
 
@@ -46,7 +44,6 @@ let numQuestion = 0;
 let score = 0;
 
 function combat() {
-  // console.log("Tela carregando");
   if (numQuestion != perguntas.length) {
     questaoTela = perguntas[numQuestion];
     equacao.innerHTML = questaoTela.questao;
@@ -55,13 +52,12 @@ function combat() {
       btnLayer[i].innerHTML = questaoTela.alternativa[i];
     }
   } else {
-    // console.log("Nao tem mais perguntas");
   }
   if (lifeEnemy <= 0 || lifePlayer <= 0) {
     const somMorteInimigoPlayer = new Audio();
 
     if (lifeEnemy <= 0) {
-      // console.log("Voce ganhou");
+      /// Ganhar ///
       somMorteInimigoPlayer.src = "./audio/Victory.mp3";
       document.querySelector(".textoMorteInimigo").innerHTML =
         "Você derrotou " + inimigoInf.name;
@@ -71,6 +67,7 @@ function combat() {
 
       lifeEnemy = 100;
       numDialogo = 0;
+      document.querySelector(".telaConversa").style.display = "none";
       clearInterval(timerCombat);
       numInimigosMortos++;
       document.querySelector(".inimigosDerrotados").innerHTML =
@@ -115,12 +112,9 @@ function key() {
       document.querySelector("#inimigoImg").style.animation =
         "dano 0.5s linear";
     }, 5);
-
-    // console.log(lifeEnemy);
     enemyBar.innerText = lifeEnemy;
     enemyBar.style.width = lifeEnemy + "%";
     numQuestion++;
-    //   console.log("True");
   } else {
     lifePlayer -= dano;
     document.querySelector("#playerImg").style.animation = "";
@@ -136,7 +130,6 @@ function key() {
 
 function mensagemdDialogo(numCasa) {
   if (numCasa[numDialogo] == undefined) {
-    // console.log(numDialogo);
     time();
     document.querySelector(".telaConversa").style.display = "none";
     document.querySelector(".combatModal").style.display = "block";

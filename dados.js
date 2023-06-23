@@ -525,8 +525,6 @@ const perguntas = [
   },
 ];
 
-console.log(perguntas.length);
-
 const textoInimigo = {
   galileu: [
     "Ora ora, quem temos aqui? Nunca vi alguém como você por aqui, será que é outro teste da igreja? Não, eles não usam estes uniforme",

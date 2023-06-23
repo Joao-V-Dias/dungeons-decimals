@@ -1,3 +1,5 @@
+/*zoom tiled 550%*/
+/*bloco tem 12 px tamanho total do bloco = 88px*/
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 const squareArea = 88;
@@ -16,10 +18,6 @@ function play() {
   document.querySelector("#container_home").style.display = "none";
   document.querySelector(".videoInicio").style.display = "block";
   videoInicial.play();
-  console.log(
-    videoInicial.style.display +
-      document.querySelector(".combatModal").style.display
-  );
 }
 videoInicial.addEventListener("ended", function () {
   videoInicial.style.display = "none";
@@ -28,7 +26,6 @@ videoInicial.addEventListener("ended", function () {
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
-//image player//
 const player = new Image();
 player.src = "./img/playerDown.png";
 
@@ -72,11 +69,9 @@ class Sprite {
   constructor({ position }) {
     this.position = position;
   }
-
   draw() {
     c.drawImage(image, this.position.x, this.position.y);
   }
-
   drawWall() {
     c.drawImage(wall, this.position.x, this.position.y);
   }
@@ -119,9 +114,6 @@ mapCollision.forEach((row, i) => {
     }
   });
 });
-
-/*zoom tiled 550%*/
-/*bloco tem 12 px tamanho total do bloco = 88px*/
 
 /////////////
 //add image//
@@ -222,15 +214,6 @@ const keys = {
   },
 };
 
-function verificaEnemy(playerteste, inimigos) {
-  return (
-    playerteste.position.x + 48 >= inimigos.position.x &&
-    playerteste.position.x <= inimigos.position.x + squareArea &&
-    playerteste.position.y + 68 >= inimigos.position.y &&
-    playerteste.position.y <= inimigos.position.y + squareArea
-  );
-}
-
 function verificaCollision(playerteste, { position }) {
   return (
     playerteste.position.x + 48 >= position.x &&
@@ -251,14 +234,14 @@ const pegadas = new Audio();
 function mudarFrameX() {
   if (playerteste.frame < 3) {
     if (background.position.x % 50 == 0) {
-      playerteste.frame = playerteste.frame + 1;
       pegadas.pause();
+      playerteste.frame = playerteste.frame + 1;
       pegadas.src = audioPegadas[playerteste.frame];
       pegadas.play();
     }
   } else if (background.position.x % 50 == 0) {
-    playerteste.frame = 0;
     pegadas.pause();
+    playerteste.frame = 0;
     pegadas.src = "./audio/wood02.ogg";
     pegadas.play();
   }
@@ -284,8 +267,8 @@ const movement = [background, galileu, lobisomen, bonzyBuddy, siameses, boss];
 const inimigos = [galileu, lobisomen, bonzyBuddy, siameses];
 
 function move() {
-  //////////////{x: -220, y: -4840}
-  //drae image//
+  //////////////
+  //draw image//
   //////////////
   background.draw();
   boundaries.forEach((boundary) => {
@@ -301,28 +284,25 @@ function move() {
     boss.draw();
   }
 
-  let closeTela = true;
-
   for (let i = 0; i < inimigos.length; i++) {
-    if (verificaEnemy(playerteste, inimigos[i])) {
-      // console.log(inimigos[i].name);
-
+    if (
+      verificaCollision(playerteste, {
+        position: {
+          x: inimigos[i].position.x,
+          y: inimigos[i].position.y,
+        },
+      })
+    ) {
       caixaDialogoVerifica(inimigos[i]);
-
-      // document.querySelector(".combatModal").style.display = "block"
-      closeTela = false;
+      keys.w.pressed = false;
+      keys.a.pressed = false;
+      keys.s.pressed = false;
+      keys.d.pressed = false;
     }
-  }
-
-  if (closeTela == true) {
-    document.querySelector(".telaConversa").style.display = "none";
-
-    numDialogo = 0;
   }
 
   let check = true;
   if (keys.w.pressed && lastKey === "w") {
-    //key = w
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
 
@@ -349,7 +329,6 @@ function move() {
       mudarFrameY();
     }
   } else if (keys.a.pressed && lastKey === "a") {
-    //key = a
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
 
@@ -376,7 +355,6 @@ function move() {
       mudarFrameX();
     }
   } else if (keys.s.pressed && lastKey === "s") {
-    //key = s
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
 
@@ -400,12 +378,9 @@ function move() {
       boundaries.forEach((boundary) => {
         boundary.position.y -= 5;
       });
-      ///////////////////////////////
       mudarFrameY();
-      ///////////////////////////
     }
   } else if (keys.d.pressed && lastKey === "d") {
-    //key = d
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
 
@@ -442,15 +417,11 @@ move();
 //keyboard//
 ////////////
 
-console.log(
-  videoInicial.style.display +
-    document.querySelector(".combatModal").style.display
-);
-
 window.addEventListener("keydown", (click) => {
   if (
     document.querySelector(".combatModal").style.display != "block" &&
-    videoInicial.style.display == "none"
+    videoInicial.style.display == "none" &&
+    document.querySelector(".telaConversa").style.display != "block"
   ) {
     switch (click.key) {
       case "w":
