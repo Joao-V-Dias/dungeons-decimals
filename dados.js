@@ -240,7 +240,7 @@ const perguntas = [
   },
   {
     questao: "10 x 10",
-    alternativa: ["10", "2", "20", "48"],
+    alternativa: ["100", "2", "20", "48"],
     resposta: "0",
   },
   {
@@ -264,7 +264,7 @@ const perguntas = [
     resposta: "2",
   },
   {
-    questao: "15% de 10",
+    questao: "15% de 100",
     alternativa: ["14", "2", "51", "15"],
     resposta: "3",
   },
@@ -301,7 +301,7 @@ const perguntas = [
   {
     questao: "0¹²",
     alternativa: ["1", "12", "0", "48"],
-    resposta: "0",
+    resposta: "2",
   },
   {
     questao: "2 + 2",
@@ -371,7 +371,7 @@ const perguntas = [
   {
     questao: "5 x 6",
     alternativa: ["15", "30", "20", "48"],
-    resposta: "2",
+    resposta: "1",
   },
   {
     questao: "10 - 2",
@@ -389,8 +389,8 @@ const perguntas = [
     resposta: "0",
   },
   {
-    questao: "4-11",
-    alternativa: ["-7", "2", "20", "48"],
+    questao: "4 - 11",
+    alternativa: ["-7", "2", "7", "-6"],
     resposta: "0",
   },
   {
@@ -400,7 +400,7 @@ const perguntas = [
   },
   {
     questao: "10 x 10",
-    alternativa: ["10", "2", "20", "48"],
+    alternativa: ["100", "2", "20", "48"],
     resposta: "0",
   },
   {
@@ -424,14 +424,14 @@ const perguntas = [
     resposta: "2",
   },
   {
-    questao: "50% de 10",
+    questao: "50% de 100",
     alternativa: ["14", "50", "51", "15"],
     resposta: "1",
   },
   {
-    questao: "7 - 7 X 1",
-    alternativa: ["0", "1", "20", "48"],
-    resposta: "1",
+    questao: "7 - 8 X 1",
+    alternativa: ["0", "1", "-10", "-1"],
+    resposta: "3",
   },
   {
     questao: "20 / 10",

@@ -4,6 +4,7 @@ const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 const squareArea = 88;
 const videoInicial = document.querySelector(".videoInicio");
+let frameEnemy = 0;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -85,7 +86,17 @@ class Enemy {
   }
 
   draw() {
-    c.drawImage(this.image, this.position.x, this.position.y);
+    c.drawImage(
+      this.image,
+      (this.image.width / 2) * frameEnemy,
+      0,
+      this.image.width / 2,
+      this.image.height,
+      this.position.x,
+      this.position.y,
+      this.image.width / 2,
+      this.image.height
+    );
   }
 }
 
@@ -133,7 +144,7 @@ const galileu = new Enemy({
     y: 500,
   },
   image: enemy,
-  name: "galileu",
+  name: "Galileu",
 });
 
 const inimigo2Img = new Image();
@@ -146,8 +157,11 @@ const lobisomen = new Enemy({
     y: 100,
   },
   image: inimigo2Img,
-  name: "lobisomen",
+  name: "Lobisomen",
 });
+
+const imgBonzy = new Image();
+imgBonzy.src = "./img/bonzy.png";
 
 const bonzyBuddy = new Enemy({
   position: {
@@ -155,8 +169,8 @@ const bonzyBuddy = new Enemy({
     x: 300,
     y: 200,
   },
-  image: inimigo2Img,
-  name: "bonzyBuddy",
+  image: imgBonzy,
+  name: "Bonzy Buddy",
 });
 
 const siameses = new Enemy({
@@ -166,7 +180,7 @@ const siameses = new Enemy({
     y: 600,
   },
   image: inimigo2Img,
-  name: "siameses",
+  name: "Siameses",
 });
 
 const bossImg = new Image();
@@ -178,7 +192,7 @@ const boss = new Enemy({
     y: 2274,
   },
   image: bossImg,
-  name: "cientista",
+  name: "Cientista",
 });
 
 const background = new Sprite({
@@ -274,11 +288,11 @@ function move() {
   boundaries.forEach((boundary) => {
     boundary.draw();
   });
-  playerteste.draw();
   galileu.draw();
   lobisomen.draw();
   bonzyBuddy.draw();
   siameses.draw();
+  playerteste.draw();
   background.drawWall();
   if (numInimigosMortos == 2) {
     boss.draw();
@@ -470,3 +484,10 @@ window.addEventListener("keyup", (click) => {
       break;
   }
 });
+
+setInterval(() => {
+  if (frameEnemy > 0) {
+    frameEnemy = -1;
+  }
+  frameEnemy++;
+}, 800);

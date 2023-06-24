@@ -15,7 +15,7 @@ let numInimigosMortos = 0;
 
 function time() {
   let timeInicio = 3;
-  let timeCombat = 50;
+  let timeCombat = 20000;
   document.querySelector(".boxTimer").style.display = "block";
   let timer = setInterval(function () {
     document.querySelector(".boxTimer").innerHTML = timeInicio;
@@ -73,7 +73,12 @@ function combat() {
       document.querySelector(".inimigosDerrotados").innerHTML =
         "Inimigos Derrotados: " + numInimigosMortos + " / 5";
 
-      if (numInimigosMortos == 2) {
+      if (numInimigosMortos == 5) {
+        document.querySelector(".videoInicio").style.display = "block";
+        videoInicial.play();
+      }
+
+      if (numInimigosMortos == 4) {
         document.querySelector(".inimigosDerrotados").innerHTML =
           "Chefe desbloqueado!";
         inimigos.push(boss);
@@ -88,7 +93,7 @@ function combat() {
       somMorteInimigoPlayer.src = "./audio/somMorte.mp3";
       document.querySelector(".boxTimer").style.display = "none";
       document.querySelector(".textoMorte").innerHTML =
-        "Você morreu por " + inimigoInf.name;
+        inimigoInf.name + " acabou com você!!";
       document.querySelector(".combatModal").style.display = "none";
       document.querySelector(".playerMorte").style.display = "flex";
     }
@@ -143,27 +148,27 @@ function caixaDialogoVerifica(inimigo) {
   inimigoInf = inimigo;
   document.querySelector(".telaConversa").style.display = "block";
   switch (inimigoInf.name) {
-    case "galileu":
+    case "Galileu":
       numCasa = textoInimigo.galileu;
       document.querySelector("#inimigoImg").src = "./img/enemyteste.png";
       mensagemdDialogo(numCasa);
       break;
-    case "lobisomen":
+    case "Lobisomen":
       numCasa = textoInimigo.lobisomen;
       document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
-    case "bonzyBuddy":
+    case "Bonzy Buddy":
       numCasa = textoInimigo.bonzyBuddy;
-      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
+      document.querySelector("#inimigoImg").src = "./img/bonzyCombate.png";
       mensagemdDialogo(numCasa);
       break;
-    case "siameses":
+    case "Siameses":
       numCasa = textoInimigo.siameses;
       document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
       mensagemdDialogo(numCasa);
       break;
-    case "cientista":
+    case "Cientista":
       numCasa = textoInimigo.cientista;
       document.querySelector("#inimigoImg").src = "./img/boss.png";
       mensagemdDialogo(numCasa);
@@ -177,6 +182,9 @@ window.addEventListener("keydown", function (event) {
     document.querySelector(".combatModal").style.display != "block"
   ) {
     numDialogo++;
+  }
+  if (event.keyCode === 32) {
+    videoInicial.style.display = "none";
   }
 });
 
