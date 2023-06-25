@@ -437,28 +437,28 @@ window.addEventListener("keydown", (click) => {
     videoInicial.style.display == "none" &&
     document.querySelector(".telaConversa").style.display != "block"
   ) {
-    switch (click.key) {
-      case "w":
+    switch (click.keyCode) {
+      case 87:
         keys.w.pressed = true;
         player.src = "./img/playerUp.png";
         lastKey = "w";
         break;
-      case "a":
+      case 65:
         keys.a.pressed = true;
         player.src = "./img/playerLeft.png";
         lastKey = "a";
         break;
-      case "s":
+      case 83:
         keys.s.pressed = true;
         player.src = "./img/playerDown.png";
         lastKey = "s";
         break;
-      case "d":
+      case 68:
         keys.d.pressed = true;
         player.src = "./img/playerRight.png";
         lastKey = "d";
         break;
-      case "m":
+      case 77:
         document.querySelector(".mapa").style.display = "block";
         break;
     }
@@ -466,20 +466,20 @@ window.addEventListener("keydown", (click) => {
 });
 
 window.addEventListener("keyup", (click) => {
-  switch (click.key) {
-    case "w":
+  switch (click.keyCode) {
+    case 87:
       keys.w.pressed = false;
       break;
-    case "a":
+    case 65:
       keys.a.pressed = false;
       break;
-    case "s":
+    case 83:
       keys.s.pressed = false;
       break;
-    case "d":
+    case 68:
       keys.d.pressed = false;
       break;
-    case "m":
+    case 77:
       document.querySelector(".mapa").style.display = "none";
       break;
   }
