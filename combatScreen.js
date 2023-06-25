@@ -150,7 +150,7 @@ function caixaDialogoVerifica(inimigo) {
   switch (inimigoInf.name) {
     case "Galileu":
       numCasa = textoInimigo.galileu;
-      document.querySelector("#inimigoImg").src = "./img/enemyteste.png";
+      document.querySelector("#inimigoImg").src = "./img/galileuCombate.png";
       mensagemdDialogo(numCasa);
       break;
     case "Lobisomen":

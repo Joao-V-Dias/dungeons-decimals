@@ -138,12 +138,15 @@ wall.src = "./img/mapaDungeonParedes.png";
 const enemy = new Image();
 enemy.src = "./img/enemyteste.png";
 
+const imgGalileu = new Image();
+imgGalileu.src = "./img/galileu.png";
+
 const galileu = new Enemy({
   position: {
     x: 400,
     y: 500,
   },
-  image: enemy,
+  image: imgGalileu,
   name: "Galileu",
 });
 
@@ -490,4 +493,4 @@ setInterval(() => {
     frameEnemy = -1;
   }
   frameEnemy++;
-}, 800);
+}, 700);
