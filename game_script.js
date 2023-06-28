@@ -494,3 +494,7 @@ setInterval(() => {
   }
   frameEnemy++;
 }, 700);
+
+window.addEventListener("load", function () {
+  document.querySelector(".load").style.display = "none";
+});
