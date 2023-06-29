@@ -73,11 +73,6 @@ function combat() {
       document.querySelector(".inimigosDerrotados").innerHTML =
         "Inimigos Derrotados: " + numInimigosMortos + " / 4";
 
-      if (numInimigosMortos == 5) {
-        document.querySelector(".videoInicio").style.display = "block";
-        videoInicial.play();
-      }
-
       if (numInimigosMortos == 4) {
         document.querySelector(".inimigosDerrotados").innerHTML =
           "Chefe desbloqueado!";
