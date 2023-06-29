@@ -17,12 +17,12 @@ function creditos_reveal() {
 
 function play() {
   document.querySelector("#container_home").style.display = "none";
-  document.querySelector(".videoInicio").style.display = "block";
-  videoInicial.play();
+  // document.querySelector(".videoInicio").style.display = "block";
+  // videoInicial.play();
 }
-videoInicial.addEventListener("ended", function () {
-  videoInicial.style.display = "none";
-});
+// videoInicial.addEventListener("ended", function () {
+//   videoInicial.style.display = "none";
+// });
 
 c.fillStyle = "white";
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -143,7 +143,7 @@ imgGalileu.src = "./img/galileu.png";
 
 const galileu = new Enemy({
   position: {
-    x: 400,
+    x: 3500,
     y: 500,
   },
   image: imgGalileu,
@@ -151,7 +151,10 @@ const galileu = new Enemy({
 });
 
 const inimigo2Img = new Image();
-inimigo2Img.src = "./img/inimigo2.png";
+inimigo2Img.src = "./img/siameses.png";
+
+const imgLobisomem = new Image();
+imgLobisomem.src = "./img/lobisomem.png";
 
 const lobisomen = new Enemy({
   position: {
@@ -159,7 +162,7 @@ const lobisomen = new Enemy({
     x: 5220,
     y: 100,
   },
-  image: inimigo2Img,
+  image: imgLobisomem,
   name: "Lobisomen",
 });
 
@@ -170,7 +173,7 @@ const bonzyBuddy = new Enemy({
   position: {
     //{x: -4535 + , y: -185}
     x: 300,
-    y: 200,
+    y: 4500,
   },
   image: imgBonzy,
   name: "Bonzy Buddy",
@@ -437,7 +440,6 @@ move();
 window.addEventListener("keydown", (click) => {
   if (
     document.querySelector(".combatModal").style.display != "block" &&
-    videoInicial.style.display == "none" &&
     document.querySelector(".telaConversa").style.display != "block"
   ) {
     switch (click.keyCode) {

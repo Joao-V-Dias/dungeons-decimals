@@ -15,7 +15,7 @@ let numInimigosMortos = 0;
 
 function time() {
   let timeInicio = 3;
-  let timeCombat = 20000;
+  let timeCombat = 30;
   document.querySelector(".boxTimer").style.display = "block";
   let timer = setInterval(function () {
     document.querySelector(".boxTimer").innerHTML = timeInicio;
@@ -71,7 +71,7 @@ function combat() {
       clearInterval(timerCombat);
       numInimigosMortos++;
       document.querySelector(".inimigosDerrotados").innerHTML =
-        "Inimigos Derrotados: " + numInimigosMortos + " / 5";
+        "Inimigos Derrotados: " + numInimigosMortos + " / 4";
 
       if (numInimigosMortos == 5) {
         document.querySelector(".videoInicio").style.display = "block";
@@ -155,7 +155,7 @@ function caixaDialogoVerifica(inimigo) {
       break;
     case "Lobisomen":
       numCasa = textoInimigo.lobisomen;
-      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
+      document.querySelector("#inimigoImg").src = "./img/lobisomemCombate.png";
       mensagemdDialogo(numCasa);
       break;
     case "Bonzy Buddy":
@@ -165,12 +165,12 @@ function caixaDialogoVerifica(inimigo) {
       break;
     case "Siameses":
       numCasa = textoInimigo.siameses;
-      document.querySelector("#inimigoImg").src = "./img/inimigo2.png";
+      document.querySelector("#inimigoImg").src = "./img/siamesesCombate.png";
       mensagemdDialogo(numCasa);
       break;
     case "Cientista":
       numCasa = textoInimigo.cientista;
-      document.querySelector("#inimigoImg").src = "./img/boss.png";
+      document.querySelector("#inimigoImg").src = "./img/bossCombate.png";
       mensagemdDialogo(numCasa);
       break;
   }
