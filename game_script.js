@@ -300,7 +300,7 @@ function move() {
   siameses.draw();
   playerteste.draw();
   background.drawWall();
-  if (numInimigosMortos == 2) {
+  if (numInimigosMortos == 4) {
     boss.draw();
   }
 
